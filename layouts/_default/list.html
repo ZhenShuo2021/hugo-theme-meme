@@ -32,11 +32,13 @@
                         <!-- Regular Section -->
                         {{ else }}
                             {{ $sectionPage := .CurrentSection }}
+                            {{ $pages := slice }}
                             {{ range .Site.RegularPages }}
                                 {{ if (.IsDescendant $sectionPage) }}
-                                    {{ $.Scratch.Add "pages" (slice .) }}
+                                    {{ $pages = $pages | append . }}
                                 {{ end }}
                             {{ end }}
+                            {{ .Scratch.Set "pages" $pages }}
                         {{ end }}
                     {{ end }}
 
