@@ -1,3 +1,12 @@
+# Customization Log
+
+- Add `all-posts.html`
+- Fix `_index.md` usage in section pages (`list.html`)
+- Remove `overrideSystemPreferences`, only use `defaultTheme` with option light, dark and auto
+- Add option `svgFavicon`
+
+---
+
 English |
 [简体中文](https://github.com/reuixiy/hugo-theme-meme/blob/master/README.zh-cn.md) |
 [繁體中文](https://github.com/reuixiy/hugo-theme-meme/blob/master/README.zh-tw.md)
@@ -76,7 +85,7 @@ MemE uses SCSS via [Hugo Pipes](https://gohugo.io/hugo-pipes/introduction/) to g
 
 Just create a `~/blog/assets/scss/custom/_custom.scss` and add your own styles into this file. Your `_custom.scss` will override `~/blog/themes/meme/assets/scss/custom/_custom.scss` and your custom CSS will be applied correctly.
 
-Actually, you can override any template of theme in Hugo, see this _unofficial mirror_ page: https://gohugobrasil.netlify.com/themes/customizing/
+Actually, you can override any template of theme in Hugo, see this *unofficial mirror* page: https://gohugobrasil.netlify.com/themes/customizing/
 
 ## Update MemE
 
@@ -100,7 +109,7 @@ If failed, try:
    ~/blog $ git clone --depth 1 https://github.com/reuixiy/hugo-theme-meme.git themes/meme
    ```
 
-**Note that** MemE makes some brand new features or _breaking changes_ sometimes, so please be sure to check [the modification history of `config.toml`](https://github.com/reuixiy/hugo-theme-meme/commits/master/config-examples) and update the related items after the update!
+**Note that** MemE makes some brand new features or *breaking changes* sometimes, so please be sure to check [the modification history of `config.toml`](https://github.com/reuixiy/hugo-theme-meme/commits/master/config-examples) and update the related items after the update!
 
 ## Awesome MemE
 
@@ -189,4 +198,4 @@ We are grateful to the following sponsors for their support:
 
 [![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com?aff=QuirkyKoala717 "Powered by DartNode - Free VPS for Open Source")
 
-*: _Some of these links are affiliate links, which means that if you click on one of the product links, I’ll receive a small commission. This helps support me to spend more time developing MemE. Thank you for the support!_
+*: *Some of these links are affiliate links, which means that if you click on one of the product links, I’ll receive a small commission. This helps support me to spend more time developing MemE. Thank you for the support!*

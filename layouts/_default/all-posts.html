@@ -1,53 +1,12 @@
 {{ define "main" }}
-    {{- $path := "" -}}
-    {{- with .File -}}
-        {{- $path = .Path -}}
-    {{- else -}}
-        {{- $path = .Path -}}
-    {{- end -}}
-
     <main class="main list" id="main">
         <div class="main-inner">
             <div class="content list-group">
-                {{ if .Site.Params.displayListTitle }}
-                    {{ if (eq .Kind "section") }}
-                        <h1 class="list-title">
-                            {{ .Title | default (delimit (last 1 (split (strings.TrimSuffix "/_index.md" $path) "/")) " ") }}
-                        </h1>
-                    {{ end }}
-                    {{ if (eq .Kind "term") }}
-                        <h1 class="list-title">
-                            {{ .Title | default .Data.Term | default (delimit (last 1 (split (strings.TrimSuffix "/_index.md" $path) "/")) " ") }}
-                        </h1>
-                    {{ end }}
-                {{ end }}
+                <h1 class="list-title">{{ .Title }}</h1>
                 {{ .Content }}
 
-                {{ $pages := slice }}
-
-                <!-- Section -->
-                {{ if (eq .Kind "section") }}
-                    <!-- Archives -->
-                    {{ if (eq .Section "archives") }}
-                        {{ $pages = (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
-                        <!-- Regular Section -->
-                    {{ else }}
-                        {{ $sectionPage := .CurrentSection }}
-                        {{ range .Site.RegularPages }}
-                            {{ if (.IsDescendant $sectionPage) }}
-                                {{ $pages = $pages | append . }}
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
-                {{ end }}
-
-                <!-- Taxonomy Term -->
-                {{ if (eq .Kind "term") }}
-                    {{ $pages = .Pages }}
-                {{ end }}
-
-                <!-- Start List -->
-                {{ range $pages.GroupByDate "2006" }}
+                {{ $filteredPages := where site.RegularPages "Params.noArchive" "!=" true }}
+                {{ range $filteredPages.GroupByDate "2006" }}
                     {{ $zodiacName := "" }}
                     {{ if site.Params.chineseZodiac }}
                         {{ $zodiacName = (index site.Data.ChineseZodiac (string (mod .Key 12))) }}
