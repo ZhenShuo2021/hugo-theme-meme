@@ -334,6 +334,9 @@ uglyURLs = false
     siteLogo = "/icons/apple-touch-icon.png"
     # 说明：用于 JSON-LD、Open Graph
 
+    svgFavicon = false
+    # 说明：是否啟用 SVG 格式的 favicon
+
     # 站点的描述
     siteDescription = "MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。"
     # 说明：用于 HTML 的头部元数据、JSON-LD、
@@ -491,22 +494,13 @@ uglyURLs = false
 
     # 默认模式
     defaultTheme = "light"
-    # 说明：light（浅色模式）或 dark（深色模式）
+    # 选项：light、dark、auto
+    # light 默认浅色主题，dark 默认深色主题，auto 默认跟随设备主题
 
     # 是否隐藏模式切换开关
     hideThemeToggle = false
     # 是否在首页隐藏模式切换开关
     hideThemeToggleInHome = false
-    # 说明：如果开启了深色模式，即使你隐藏了开关，
-    #      你的读者依然可能以深色模式阅读你的博
-    #      客，如果该读者的系统设置为深色模式的
-    #      话。类似，如果你开启深色模式并将默认
-    #      模式修改为它，即使你隐藏开关，你的读
-    #      者依然可能以浅色模式模式阅读你的博客。
-    #      除非，你开启下方这个选项。
-
-    overrideSystemPreferences = false
-
 
     ######################################
     # 网页应用
