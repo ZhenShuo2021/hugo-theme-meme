@@ -21,7 +21,9 @@
                         </h1>
                     {{ end }}
                 {{ end }}
-                {{ .Content }}
+                <div class="post-body">
+                    {{ .Content }}
+                </div>
 
                 {{ $pages := slice }}
 
