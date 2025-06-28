@@ -3,7 +3,9 @@
         <div class="main-inner">
             <div class="content list-group">
                 <h1 class="list-title">{{ .Title }}</h1>
-                {{ .Content }}
+                <div class="post-body">
+                    {{ .Content }}
+                </div>
 
                 {{ $filteredPages := where site.RegularPages "Params.noArchive" "!=" true }}
                 {{ range $filteredPages.GroupByDate "2006" }}
