@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
         themeSwitcher.addEventListener('click', (e) => {
             e.preventDefault();
             
-            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const currentTheme = getCurrentTheme();
             const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
             localStorage.setItem('theme', nextTheme);
@@ -42,7 +42,7 @@ window.addEventListener('storage', function (event) {
 });
 
 function updateThemeEffects() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const isDark = getCurrentTheme() === 'dark';
 
     const themeColor = isDark ? '{{ .Site.Params.themeColorDark }}' : '{{ .Site.Params.themeColor }}';
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -79,4 +79,8 @@ function updateThemeEffects() {
         mermaid.initialize(mermaidConfig);
         mermaid.init();
     }
+}
+
+function getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme');
 }
