@@ -10,18 +10,27 @@
 
     {{- $hashtags := newScratch -}}
     {{- with .Params.tags -}}
+        {{- $tagList := slice -}}
         {{- range . -}}
             {{- $tag := . -}}
             {{- $url := urls.Parse (. | urlize) -}}
             {{- $path := $url.Path -}}
             {{- with $.Site.GetPage (printf `/tags/%s` $path) -}}
-                {{- $hashtags.Add "tags" (replace (.LinkTitle | default $tag) " " "") -}}
+                {{- $cleanTag := replace (.LinkTitle | default $tag) " " "" -}}
+                {{- $tagList = $tagList | append $cleanTag -}}
             {{- end -}}
-            {{- $hashtags.Add "tags" "," -}}
         {{- end -}}
-        {{- $firstTag := index (split ($hashtags.Get "tags") ",") 0 -}}
-        {{- if $firstTag -}}
-            {{- $hashtags.Set "firsttag" (printf "%s%s" "%23" $firstTag) -}}
+        {{- if $tagList -}}
+            {{- $hashtags.Set "tags" (delimit $tagList ",") -}}
+            {{- $firstTag := index $tagList 0 -}}
+            {{- if $firstTag -}}
+                {{- $hashtags.Set "firsttag" (printf "%s%s" "%23" $firstTag) -}}
+            {{- end -}}
+            {{- $allHashtags := slice -}}
+            {{- range $tagList -}}
+                {{- $allHashtags = $allHashtags | append (printf "%s%s" "%23" .) -}}
+            {{- end -}}
+            {{- $hashtags.Set "allhashtags" (delimit $allHashtags " ") -}}
         {{- end -}}
     {{- end -}}
 
