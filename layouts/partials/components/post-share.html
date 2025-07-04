@@ -10,18 +10,27 @@
 
     {{- $hashtags := newScratch -}}
     {{- with .Params.tags -}}
+        {{- $tagList := slice -}}
         {{- range . -}}
             {{- $tag := . -}}
             {{- $url := urls.Parse (. | urlize) -}}
             {{- $path := $url.Path -}}
             {{- with $.Site.GetPage (printf `/tags/%s` $path) -}}
-                {{- $hashtags.Add "tags" (replace (.LinkTitle | default $tag) " " "") -}}
+                {{- $cleanTag := replace (.LinkTitle | default $tag) " " "" -}}
+                {{- $tagList = $tagList | append $cleanTag -}}
             {{- end -}}
-            {{- $hashtags.Add "tags" "," -}}
         {{- end -}}
-        {{- $firstTag := index (split ($hashtags.Get "tags") ",") 0 -}}
-        {{- if $firstTag -}}
-            {{- $hashtags.Set "firsttag" (printf "%s%s" "%23" $firstTag) -}}
+        {{- if $tagList -}}
+            {{- $hashtags.Set "tags" (delimit $tagList ",") -}}
+            {{- $firstTag := index $tagList 0 -}}
+            {{- if $firstTag -}}
+                {{- $hashtags.Set "firsttag" (printf "%s%s" "%23" $firstTag) -}}
+            {{- end -}}
+            {{- $allHashtags := slice -}}
+            {{- range $tagList -}}
+                {{- $allHashtags = $allHashtags | append (printf "%s%s" "%23" .) -}}
+            {{- end -}}
+            {{- $hashtags.Set "allhashtags" (delimit $allHashtags " ") -}}
         {{- end -}}
     {{- end -}}
 
@@ -37,7 +46,7 @@
             {{ range .Site.Params.postShareItems | default (slice "facebook" "mastodon" "fediverse" "twitter") }}
                 {{ if eq . "twitter" }}
                     <div class="share-item twitter">
-                        {{ $url := printf "https://twitter.com/share?url=%s&text=%s" $.Permalink $title }}
+                        {{ $url := printf "https://twitter.com/intent/tweet/?url=%s&text=%s" $.Permalink $title }}
                         {{ with $hashtags.Get "tags" }}{{ $url = printf "%s&hashtags=%s" $url . }}{{ end }}
                         {{ with $.Site.Params.siteTwitter }}{{ $url = printf "%s&via=%s" $url . }}{{ end }}
                         <a href="{{ $url }}" title="{{ i18n "shareOnTitle" }}{{ i18n "twitter" }}" target="_blank" rel="noopener">
