@@ -11,9 +11,11 @@
 .post-nav-prev {
     margin-right: auto;
     max-width: 42%;
+    white-space: nowrap;
 }
 .post-nav-next {
     margin-left: auto;
     text-align: right;
     max-width: 42%;
+    white-space: nowrap;
 }
