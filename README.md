@@ -4,7 +4,8 @@
 - Fix `_index.md` usage in section pages (`list.html`)
 - Fix page navigation style (`_post-nav.scss`)
 - Support RSS XSL support for styled, human-readable RSS feed
-- Support [aside TOC](https://github.com/reuixiy/hugo-theme-meme/issues/368)
+- Support Series function, just as what [Blowfish does](https://blowfish.page/docs/series/)
+- Use [aside TOC](https://github.com/reuixiy/hugo-theme-meme/issues/368) ([commit](https://github.com/ZhenShuo2021/hugo-theme-meme/commit/468d292adf5dd1eb306c4e313ee926af75d72abc#diff-4b040166a27bdb12816088bfa3f4f2a0be2b72223e3eacae469a67dcdfac9c3d))
 - Remove `overrideSystemPreferences`, only use `defaultTheme` with option light, dark and auto
 - Add option `svgFavicon`
 
