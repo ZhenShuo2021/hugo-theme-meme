@@ -485,6 +485,8 @@ uglyURLs = false
     feedFooter = """> 阅读原文：<{{ .Permalink }}>  
 > 博客公告：博客现已开通邮件订阅，欢迎[通过 Substack 订阅](https://username.substack.com)支持我的创作！"""
 
+    # 是否啟用 RSS 的 XSL style sheet
+    enableRSSXSL = true
 
     ######################################
     # 深色模式

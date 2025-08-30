@@ -3,6 +3,7 @@
 - Add `all-posts.html`
 - Fix `_index.md` usage in section pages (`list.html`)
 - Fix page navigation style (`_post-nav.scss`)
+- Support RSS XSL support for styled, human-readable RSS feed
 - Remove `overrideSystemPreferences`, only use `defaultTheme` with option light, dark and auto
 - Add option `svgFavicon`
 

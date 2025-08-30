@@ -485,6 +485,8 @@ uglyURLs = false
     feedFooter = """> 閱讀原文：<{{ .Permalink }}>  
 > 網誌公告：網誌現已開通郵件訂閱，歡迎[透過 Substack 訂閱](https://username.substack.com)支援我的創作！"""
 
+    # 是否啟用 RSS 的 XSL style sheet
+    enableRSSXSL = true
 
     ######################################
     # 深色模式
