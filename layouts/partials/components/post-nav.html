@@ -12,12 +12,22 @@
         <ul class="post-nav">
             {{ if $next }}
                 <li class="post-nav-prev">
-                    <a href="{{ $next.RelPermalink }}" rel="prev">&lt; {{ (partial "utils/title.html" (dict "$" $next "title" $next.LinkTitle)).htmlTitle }}</a>
+                    <a href="{{ $next.RelPermalink }}" rel="prev">
+                        <span class="nav-arrow">&lt;&nbsp;</span>
+                        <span class="nav-content">
+                            <span class="nav-title">{{ (partial "utils/title.html" (dict "$" $next "title" $next.LinkTitle)).htmlTitle }}</span>
+                        </span>
+                    </a>
                 </li>
             {{ end }}
             {{ if $prev }}
                 <li class="post-nav-next">
-                    <a href="{{ $prev.RelPermalink }}" rel="next">{{ (partial "utils/title.html" (dict "$" $prev "title" $prev.LinkTitle)).htmlTitle }} &gt;</a>
+                    <a href="{{ $prev.RelPermalink }}" rel="next">
+                        <span class="nav-content">
+                            <span class="nav-title">{{ (partial "utils/title.html" (dict "$" $prev "title" $prev.LinkTitle)).htmlTitle }}</span>
+                        </span>
+                        <span class="nav-arrow">&nbsp;&gt;</span>
+                    </a>
                 </li>
             {{ end }}
         </ul>

@@ -2,6 +2,7 @@
 
 - Add `all-posts.html`
 - Fix `_index.md` usage in section pages (`list.html`)
+- Fix page navigation style (`_post-nav.scss`)
 - Remove `overrideSystemPreferences`, only use `defaultTheme` with option light, dark and auto
 - Add option `svgFavicon`
 

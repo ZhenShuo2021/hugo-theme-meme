@@ -10,12 +10,18 @@
 }
 .post-nav-prev {
     margin-right: auto;
-    max-width: 42%;
-    white-space: nowrap;
+    max-width: 60%;
 }
 .post-nav-next {
     margin-left: auto;
     text-align: right;
-    max-width: 42%;
-    white-space: nowrap;
+    max-width: 60%;
+}
+.post-nav-prev a {
+    display: flex;
+    align-items: start;
+}
+.post-nav-next a {
+    display: flex;
+    align-items: start;
 }
