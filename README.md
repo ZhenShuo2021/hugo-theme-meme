@@ -4,6 +4,7 @@
 - Fix `_index.md` usage in section pages (`list.html`)
 - Fix page navigation style (`_post-nav.scss`)
 - Support RSS XSL support for styled, human-readable RSS feed
+- Support [aside TOC](https://github.com/reuixiy/hugo-theme-meme/issues/368)
 - Remove `overrideSystemPreferences`, only use `defaultTheme` with option light, dark and auto
 - Add option `svgFavicon`
 
